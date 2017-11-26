@@ -1,0 +1,17 @@
+{
+    "env": {
+        "browser": true
+        },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "extends": "airbnb-base",
+    "rules": {
+        newline-per-chained-call: [error, { "ignoreChainWithDepth": 2 }],
+        no-console: 0,
+        radix: 0,
+        no-unused-vars: 1,
+        padded-blocks: 1
+    },
+}

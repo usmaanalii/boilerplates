@@ -1,0 +1,7 @@
+{% extends 'example2-layout.html' %}
+{% block content %}
+  <h1>Red from Common CSS</h1>
+  <h2>Blue from example1 Blueprint CSS</h2>
+
+  <script src="{{ url_for('example2.static', filename='index.bundle.js') }}"></script>
+{% endblock %}
