@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/vendors/normalize.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('example2.static', filename='index.bundle.css') }}">
+    <title>example1 2</title>
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
