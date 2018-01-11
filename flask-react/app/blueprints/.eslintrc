@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true
+        },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "extends": "airbnb",
+    "rules": {
+        newline-per-chained-call: [error, { "ignoreChainWithDepth": 2 }],
+        no-console: 0,
+        radix: 0,
+        no-unused-vars: 1,
+        padded-blocks: 1,
+        react/jsx-filename-extension: 0,
+        jsx-a11y/anchor-is-valid: 1
+    },
+}
