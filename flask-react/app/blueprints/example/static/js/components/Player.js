@@ -16,7 +16,7 @@ const Player = (props) => {
     <div>
       <h1>{player.name} (#{player.number})</h1>
       <h2>Position: {player.position}</h2>
-      <Link to="/roster">Back</Link>
+      <Link to="/example/roster">Back</Link>
     </div>
   );
 };

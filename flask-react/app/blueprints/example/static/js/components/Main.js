@@ -12,9 +12,9 @@ import Schedule from './Schedule';
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/roster" component={Roster} />
-      <Route path="/schedule" component={Schedule} />
+      <Route exact path="/example" component={Home} />
+      <Route path="/example/roster" component={Roster} />
+      <Route path="/example/schedule" component={Schedule} />
     </Switch>
   </main>
 );

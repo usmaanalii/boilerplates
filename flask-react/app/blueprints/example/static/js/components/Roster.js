@@ -7,8 +7,8 @@ import Player from './Player';
 // depending on the full pathname
 const Roster = () => (
   <Switch>
-    <Route exact path="/roster" component={FullRoster} />
-    <Route path="/roster/:number" component={Player} />
+    <Route exact path="/example/roster" component={FullRoster} />
+    <Route path="/example/roster/:number" component={Player} />
   </Switch>
 );
 
