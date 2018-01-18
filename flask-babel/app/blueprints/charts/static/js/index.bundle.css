@@ -1,0 +1,40 @@
+.wagon-wheel__text {
+  text-anchor: middle;
+  font-size: 0.7em;
+  font-weight: 500;
+}
+
+.wagon-wheel__title {
+  text-align: center;
+  font-family: Verdana;
+  font-size: 0.8em;
+}
+
+.wagon-wheel__title-column, .wagon-wheel__annotation {
+  font-family: Verdana;
+  font-weight: 600;
+}
+
+.wagon-wheel__section {
+  stroke: white;
+  stroke-width: 0.1em;
+}
+
+.wagon-wheel__component {
+  border: 1px solid black;
+  margin: 2px;
+}
+
+.wagon-wheel__component--selected {
+  border: 1px solid red;
+}
+
+.line {
+  fill: none;
+  stroke-width: 4px;
+}
+
+.axis path, .tick line {
+  fill: none;
+  stroke: #333;
+}

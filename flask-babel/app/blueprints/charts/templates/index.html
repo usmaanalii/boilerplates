@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <input type="button" value="Change">
+  <div class="wagon-wheel__container"></div>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('charts.static', filename='css/wagonWheelChart.css') }}">
+  <script src="{{ url_for('charts.static', filename='js/index.bundle.js') }}"></script>
+{% endblock %}

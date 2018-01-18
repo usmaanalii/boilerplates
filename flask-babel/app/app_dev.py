@@ -1,12 +1,12 @@
 from flask import Flask
 from livereload import Server
 
-from blueprints.example.controllers import example
+from blueprints.charts.controllers import charts
 
 # App Configuration
 app = Flask(__name__, static_folder='./blueprints/common/static')
 
-app.register_blueprint(example, url_prefix='/example')
+app.register_blueprint(charts, url_prefix='/charts')
 
 app.debug = True
 app.config['SECRET_KEY'] = 'blah'
