@@ -5,7 +5,7 @@
 import { select as d3select } from 'd3-selection';
 import { transition as d3transition } from 'd3-transition';
 import { arc as d3arc, pie as d3pie } from 'd3-shape';
-import { normalize, round, randomArraySelection } from '../../../common/static/js/helpers';
+import { normalize, round, randomArraySelection, columnNameFormatter } from '../../../common/static/js/helpers';
 import style from '../css/wagonWheelChart.css';
 
 const baseURL = window.location.origin;
@@ -111,6 +111,8 @@ const wagonWheel = (dataset, columnName) => {
     .attr('width', 156 / 2);
 
   const update = (data, column) => {
+    const title = document.querySelector('.wagon-wheel__title');
+
     const arc = d3arc()
       .innerRadius(0)
       .outerRadius(outerRadius);
@@ -153,6 +155,17 @@ const wagonWheel = (dataset, columnName) => {
       .attr('class', 'wagon-wheel__text wagon-wheel__annotation')
       .merge(text)
       .text(d => d.data[column] || 0); // get the label from our original data array
+
+    if (title) title.remove();
+
+    svg.append('foreignObject')
+      .attr('width', 320)
+      .attr('x', 10)
+      .attr('y', 12)
+      .append('xhtml:div')
+      .attr('contenteditable', true)
+      .html(columnNameFormatter(column))
+      .attr('class', 'wagon-wheel__title');
 
     slices.exit().remove();
     text.exit().remove();
