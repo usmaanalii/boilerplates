@@ -3,6 +3,7 @@
 /* eslint array-callback-return: 0 */
 /* eslint max-len: 1 */
 import { select as d3select } from 'd3-selection';
+import { transition as d3transition } from 'd3-transition';
 import { arc as d3arc, pie as d3pie } from 'd3-shape';
 import { normalize, round, randomArraySelection } from '../../../common/static/js/helpers';
 import style from '../css/wagonWheelChart.css';
@@ -122,6 +123,12 @@ const wagonWheel = (dataset, columnName) => {
     const slices = wagonWheelSvg.selectAll('path')
       .data(pie(data));
 
+    const text = wagonWheelSvg.selectAll('text')
+      .data(pie(data));
+
+    const t = d3transition()
+      .duration(1000);
+
     slices
       .enter()
       .append('path')
@@ -129,22 +136,14 @@ const wagonWheel = (dataset, columnName) => {
       .attr('id', (d, i) => `zone_${i}`)
       .attr('class', 'wagon-wheel__section')
       .merge(slices)
+      .transition(t)
+      .attr('fill', d => `rgba(175, 11, 36, ${normalize(data, d.data[column], column)})`)
+      .transition(t)
       .attr('fill', d => `rgba(175, 11, 36, ${normalize(data, d.data[column], column)})`);
 
-
-    // arcs are used in placing annotations...
-    const arcs = wagonWheelSvg.selectAll('text')
-      // Associate the generated pie data (an array of arcs, each having startAngle,
-      // endAngle and value properties)
-      .data(pie(data));
-      // This will create <g> elements for every "extra" data element that should be associated
-      // with a selection. The result is creating a <g> for every object in the data array
-
-    arcs
+    text
       .enter()
-      // Create a group to hold each slice (we will have a <path> and a <text>
-      // element associated with each slice)
-      .append('svg:text')
+      .append('text')
       .attr('transform', (d) => {
         // set the label's origin to the center of the arc
         // we have to make sure to set these before calling arc.centroid
@@ -152,11 +151,11 @@ const wagonWheel = (dataset, columnName) => {
         return `translate(${centroid[0]}, ${centroid[1]})`;
       })
       .attr('class', 'wagon-wheel__text wagon-wheel__annotation')
-      .merge(arcs)
+      .merge(text)
       .text(d => d.data[column] || 0); // get the label from our original data array
 
     slices.exit().remove();
-    arcs.exit().remove();
+    text.exit().remove();
   };
 
   update(dataset, columnName);
