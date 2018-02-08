@@ -3,7 +3,7 @@
         "browser": true
         },
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 2017,
         "sourceType": "module"
     },
     "extends": "airbnb",
@@ -13,7 +13,9 @@
         radix: 0,
         no-unused-vars: 1,
         padded-blocks: 1,
+        no-param-reassign: 1,
         react/jsx-filename-extension: 0,
         jsx-a11y/anchor-is-valid: 1
     },
+    "parser": "babel-eslint",
 }

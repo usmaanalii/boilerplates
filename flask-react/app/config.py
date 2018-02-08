@@ -1,7 +1,7 @@
 db_credentials = dict(
-    host='XXX',
-    user='XXX',
-    passwd='XXX',
-    db='XXX',
-    port=99999
+    host='xx',
+    user='xx',
+    passwd='xx',
+    db='xx',
+    port=111
 )
